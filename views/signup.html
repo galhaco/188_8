@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+     <script defer src="country-list.js"></script>
+    <script defer src="script.js"></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="titles">Sign Up</h2>
+      <form id="signup-form" action="/formSignup" method="post">
+        <div class="form-group"> 
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required >
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+            <div class="form-group">
+                <label for="favorite-coin">Favorite Coin:</label>
+                <select id="favorite-coin" name="favorite-coin" required>
+                  <!-- Options will be inserted from JavaScript -->
+                </select>
+            </div>
+            <button type="submit" class="signupbutton" id="animationbtn">Sign Up</button>
+      </form>
+      <p class="login-link">Already have an account? <a class="links" href="/login">Log in</a></p>
+    </div>
+  </body>
+</html>

@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Currency Converter App in JavaScript WEB PROJECT</title>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- cool font -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   </head>
   <body>
@@ -23,7 +22,7 @@
             <p>From</p>
             <div class="select-box">
               <img src="https://flagcdn.com/48x36/us.png" alt="flag">
-              <select> <!-- Options tag are inserted from JavaScript --> </select>
+              <select>  </select>
             </div> 
           </div>
           <div class="icon"><i class="fas fa-exchange-alt"></i></div>
@@ -31,7 +30,7 @@
             <p>To</p>
             <div class="select-box">
               <img src="https://flagcdn.com/48x36/il.png" alt="flag">
-              <select id="coinSelect"> <!-- Options tag are inserted from JavaScript --> </select>
+              <select id="coinSelect">  </select>
             </div>
           </div>
         </div>
@@ -42,7 +41,56 @@
     <script src="country-list.js"></script>
     <script src="script.js"></script>
   </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Currency Converter App in JavaScript WEB PROJECT</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- cool font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <a href="/" class="sign-out">Sign Out</a>
+  <a href="#" type="submit" class="aboutus" onclick="redirectToaboutus()"> About Us</a>
+  <div class="wrapper">
+    <header>Currency Converter</header>
+    <form class="amountForm">
+      <div class="amount">
+        <p>Enter Amount</p>
+        <input type="text" id="numericInput" pattern="\d*" value="1">
+      </div>
+      <div class="drop-list">
+        <div class="from">
+          <p>From</p>
+          <div class="select-box">
+            <img src="" alt="flag" id="favFlag">
+            <select id="fromCurrencySelect"> <!-- Options tag are inserted from JavaScript --> </select>
+          </div>
+        </div>
+        <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+        <div class="to">
+          <p>To</p>
+          <div class="select-box">
+            <img src="https://flagcdn.com/48x36/il.png" alt="flag">
+            <select id="toCurrencySelect"> <!-- Options tag are inserted from JavaScript --> </select>
+          </div>
+        </div>
+      </div>
+      <div class="exchange-rate">Getting exchange rate...</div>
+      <button>Get Exchange Rate</button>
+    </form>
+  </div>
+  <div class="title-container">
+<a href="/Profile" id="Profile">My Profile</a>
+  </div>
+  <script src="country-list.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
+
 
 
   

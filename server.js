@@ -16,15 +16,15 @@ app.set('view engine', 'pug');
 
 
 
-
-
 app.get('/createTable', CRUD.createUsersTable)
-app.get('/dropTable', CRUD.dropAllTables)
-app.post('/createHistoryTable', CRUD.createHistoryTable)
-//app.get('/checkLogin', CRUD.loginCheck)
-//app.get('/signUp', CRUD.insertQuery)
+app.get('/dropTable', CRUD.DropAllTables)
+app.get('/createHistoryTable', CRUD.createHistoryTable)
+app.post('/checkLogin', CRUD.loginCheck)
 app.post('/formSignup', CRUD.createNewUser)
-//app.get('/123', checkQuery)
+app.get('/history', (req,res)=>{
+    res.sendFile(path.join(__dirname, "views/ShowHistory.html"));
+     // CRUD.userHistory;
+})
 
 
 
@@ -50,9 +50,8 @@ app.get('/aboutus', (req,res) => {
 app.get('/Profile', (req,res) => {
     res.sendFile(path.join(__dirname,"views/Profile.html"));
 });
-app.post('/formLogin', (req, res) => {
-    res.redirect('/home');
-  }); 
+app.post('/formLogin', CRUD.loginCheck);
+
   app.post('/formSignup', (req, res) => {
     console.log(req.body.favoriteCoin);
     res.cookie("fav" , req.body.favoriteCoin);

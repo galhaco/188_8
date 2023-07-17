@@ -16,22 +16,31 @@ const createUsersTable = (req, res) => {
     });
 };
 
-const dropAllTables = (req, res) => {
+const DropAllTables = (req, res) => {
     const Q2 = 'DROP TABLE IF EXISTS `Users`';
     SQL.query(Q2, (err, mysqlres) => {
         if (err) {
-            console.log(err);
-            res.status(400).send(err);
+            console.log("Users table error",err);
+            res.status(400).send("Users table error",err);
             return;
         }
-        res.send("hi - All tables dropped");
-        console.log("hi - ALL tables dropped");
+        console.log("hi - Users tables dropped");
+        const Q = 'DROP TABLE IF EXISTS `HistoryTable`';
+        SQL.query(Q, (err, mysqlres) => {
+            if (err) {
+                console.log("Users table error",err);
+                res.status(400).send("Users table error",err);
+                return;
+            }
+            res.send("hi - Both tables dropped");
+            console.log("hi - HistoryTable tables dropped");
+            return;
+        });
+        
     });
 };
-
-
 const createHistoryTable = (req, res) => {
-    const Q3 = 'CREATE TABLE IF NOT EXISTS `TableB` (email varchar(200) NOT NULL PRIMARY KEY, username varchar(255) NOT NULL, fromCoin varchar(255) NOT NULL,amount int not null, toCoin varchar(250) not null) ENGINE=InnoDB DEFAULT CHARSET=utf8';
+    const Q3 = 'CREATE TABLE IF NOT EXISTS `HistoryTable` (email varchar(200) NOT NULL PRIMARY KEY, username varchar(255) NOT NULL, fromCoin varchar(255) NOT NULL,amount int not null, toCoin varchar(250) not null) ENGINE=InnoDB DEFAULT CHARSET=utf8';
     SQL.query(Q3, (err, mysqlres) => {
         if (err) {
             console.log(err);
@@ -77,14 +86,11 @@ const createNewUser = (req, res) => {
    });
   };
   
-  
-
-
- 
-    const loginCheck = (req, res) => {
+  const loginCheck = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-    console.log("email"+email +"password"+ password) 
+    console.log("email"+email +"pass"+ password) 
+  
     const checkQuery = 'SELECT * FROM Users WHERE email = ? AND password = ?';
     SQL.query(checkQuery, [email, password], (err, result) => {
       if (err) {
@@ -92,17 +98,28 @@ const createNewUser = (req, res) => {
         res.status(500).send('Something went wrong');
         return;
       }
-  
       if (result.length > 0) {
         res.cookie('nameUser', email);
         res.redirect('/home'); // Redirect to /home if login is successful
       } else {
               // Display an alert pop-up message and redirect back to /login
-              res.send("<script>alert('Incorrect email or password'); window.location.href = '/';</script>");
+              res.send("<script>alert('Incorrect email or password'); window.location.href = '/login';</script>");
               return;
       }
-    });
-};
 
-module.exports = {createUsersTable, dropAllTables, createHistoryTable, createNewUser, loginCheck};
-//insertQuery, checkQuery
+    /*  const userHistory = 'SELECT * FROM HistoryTable WHERE email = ?';
+  SQL.query(userHistory, [newUser.email], (checkErr, checkResult) => {
+    if (checkErr) {
+      console.error('Error checking user existence: ', checkErr);
+      res.send('Something went wrong');
+      return;
+    }
+    else{
+
+    } */
+    }); 
+     }
+ // document.getElementById('greeting').innerHTML("HELLO"+ name: req.body.username)
+
+
+module.exports = {createUsersTable, DropAllTables, createHistoryTable, createNewUser, loginCheck};

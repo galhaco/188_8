@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../static/script.js"></script>
+    <title>Profile</title>
 </head>
 <body>
-    <p> !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+    <a href="/home" class="sign-out">back</a>
+    <form action="/History" method="post">
+    <div class="container">
+        <p id="greeting" name="greeting">Hello + ""+(req.cookies.username)</p>
+        <p>Your Password: + (req.cookies.email)</p>
+        <button type="button">Watch Your History</button>
+    </div>
+</form>
 </body>
 </html>

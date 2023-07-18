@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="../static/script.js"></script>
+    <script defer src="script.js"></script>
     <title>Profile</title>
 </head>
 <body>
     <a href="/home" class="sign-out">back</a>
-    <form action="/History" method="post">
-    <div class="container">
-        <p id="greeting" name="greeting">Hello + ""+(req.cookies.username)</p>
-        <p>Your Password: + (req.cookies.email)</p>
-        <button type="button">Watch Your History</button>
+    <form action="/HistoryTable" method="post">
+    <div class="container" id="greeting" >
+        <p id="greetMes"></p>
+        <p id="greetMes2"></p>
+        <p id="greetMes3"></p>
+        <button type="submit">Watch Your History</button>
     </div>
 </form>
 </body>

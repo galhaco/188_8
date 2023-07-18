@@ -7,29 +7,20 @@ const port = 3000;
 const cookie = require ('cookie-parser');
 const sql = require ('./DB/db')
 const CRUD = require ('./DB/CRUD');
-//const db = require ('./DB/db.config');
 app.use(express.static(path.join(__dirname, "static")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookie());
 app.set('view engine', 'pug');
 
+//functions
+app.get('/dropAllTables', CRUD.dropAllTables);
+app.post('/checkLogin', CRUD.loginCheck);
+app.post('/formSignup', CRUD.createNewUser);
+app.post('/submitRate', CRUD.createNewHistory);
+app.post('/HistoryTable', CRUD.selectAllHistory)
 
-
-app.get('/createTable', CRUD.createUsersTable)
-app.get('/dropTable', CRUD.DropAllTables)
-app.get('/createHistoryTable', CRUD.createHistoryTable)
-app.post('/checkLogin', CRUD.loginCheck)
-app.post('/formSignup', CRUD.createNewUser)
-app.get('/history', (req,res)=>{
-    res.sendFile(path.join(__dirname, "views/ShowHistory.html"));
-     // CRUD.userHistory;
-})
-
-
-
-
-//routing
+//routing and paths
 app.get('/home', (req,res)=>{
     res.sendFile(path.join(__dirname, "views/index.html"));
 
@@ -38,7 +29,6 @@ app.get('/home', (req,res)=>{
 app.get('/', (req,res)=>{
     res.sendFile(path.join(__dirname, "views/signUp.html"));
 });
-
 
 app.get('/login', (req,res)=>{
     res.sendFile(path.join(__dirname, "views/login.html"));

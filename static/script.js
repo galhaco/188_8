@@ -19,6 +19,42 @@ window.addEventListener("load", () => {
   getExchangeRate();
 });
 
+var x;
+var y;
+function signUp() {
+  y = document.getElementById("password").value;
+  x = document.getElementById("favoriteCoin").value;
+  document.cookie = "password="+y;
+  document.cookie = "favcoin="+x;
+}
+
+function getCookie(cookieName) {
+  const name = cookieName + "=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const cookieArray = decodedCookie.split(';');
+
+  for (let i = 0; i < cookieArray.length; i++) {
+    let cookie = cookieArray[i];
+    while (cookie.charAt(0) === ' ') {
+      cookie = cookie.substring(1);
+    }
+    if (cookie.indexOf(name) === 0) {
+      return cookie.substring(name.length, cookie.length);
+    }
+  }
+
+  return null;
+}
+
+const nameCookieValue = getCookie("name");
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("greetMes").innerText = "Hello "+getCookie("userName");
+  document.getElementById("greetMes2").innerText = "Your password is: " +getCookie("password");;
+  document.getElementById("greetMes3").innerText = "Your faverorite Coin is: " +getCookie("favcoin");;
+
+});
+
 getButton.addEventListener("click", e => {
   e.preventDefault();
   getExchangeRate();
@@ -59,31 +95,6 @@ function getExchangeRate() {
     });
 }
 
-/*function loadFlag(element) {
-  for (let code in country_list) {
-    if (code == element.value) {
-      let imgTag = element.parentElement.querySelector("img");
-      imgTag.src = `https://flagcdn.com/48x36/${country_list[code].toLowerCase()}.png`;
-    }
-  }
-}*/
-
-// Update the loadFlag function
-/*function loadFlag(element) {
-    const favCookieValue = getCookieValue("fav");
-    if (element.value === "USD" && favCookieValue && favCookieValue in country_list) {
-      const usFlagImg = document.getElementById("usFlag");
-      usFlagImg.src = `https://flagcdn.com/48x36/${favCookieValue.toLowerCase()}.png`;
-    } else {
-      for (let code in country_list) {
-        if (code == element.value) {
-          let imgTag = element.parentElement.querySelector("img");
-          imgTag.src = `https://flagcdn.com/48x36/${country_list[code].toLowerCase()}.png`;
-        }
-      }
-    }
-*/  
-// Update the loadFlag function
 function loadFlag(element) {
     const favCookieValue = getCookieValue("fav");
     for (let code in country_list) {
@@ -130,34 +141,5 @@ const animation = document.getElementById("animation");
 
 signupButton.addEventListener("click", () => {
   animation.classList.add("active");
-  // You can add more animation effects or logic here
 });
 
-
-
-
-
-  
-
-
-
-
-
-  
-  
-
-  
-
-  
-
-
-  
-
-
-
-
-
-
-
-
-  

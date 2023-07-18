@@ -10,3 +10,4 @@ let country_list = {
     "CNY": "CN",
     "ILS": "IL"
 }
+//this is the countries and coins that we work with!

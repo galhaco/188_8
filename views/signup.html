@@ -1,39 +1,39 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="style.css">
-     <script defer src="country-list.js"></script>
-    <script defer src="script.js"></script> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <div class="title-container">
-      <p id="logo2">The Best Currency Convertor in The World</p></div>
-    <div class="container">
-      <h2 class="titles">Sign Up</h2>
-      <form id="signup-form" action="/formSignup" method="post">
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" pattern="[A-Za-z]+" title="Username should only contain letters" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,}" title="Password must be at least 6 characters long and contain both letters and numbers" required>
-        </div>
-        <div class="form-group">
-          <label for="favoriteCoin">Favorite Coin:</label>
-          <select id="favoriteCoin" name="favoriteCoin">
-          </select>
-        </div>
-        <button type="submit" class="signupbutton" id="animationbtn">Sign Up</button>
-      </form>
-      <p class="login-link">Already have an account? <a class="links" href="/login">Log in</a></p>
-    </div>
-  </body>
-</html>
+  <!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>Sign Up</title>
+      <link rel="stylesheet" href="style.css">
+      <script defer src="country-list.js"></script>
+      <script defer src="script.js"></script> 
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+      <div class="title-container">
+        <p id="logo2">The Best Currency Convertor in The World</p></div>
+      <div class="container">
+        <h2 class="titles">Sign Up</h2>
+        <form id="signup-form" action="/formSignup" method="post">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" pattern="[A-Za-z]+" title="Username should only contain letters" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,}" title="Password must be at least 6 characters long and contain both letters and numbers" required>
+          </div>
+          <div class="form-group">
+            <label for="favoriteCoin">Favorite Coin:</label>
+            <select id="favoriteCoin" name="favoriteCoin">
+            </select>
+          </div>
+          <button type="submit" onclick="signUp()" class="signupbutton" id="animationbtn">Sign Up</button>
+        </form>
+        <p class="login-link">Already have an account? <a class="links" href="/login">Log in</a></p>
+      </div>
+    </body>
+  </html>

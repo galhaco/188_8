@@ -36,7 +36,6 @@ body {
   text-align: center;
   font-weight: bold;
   font-style: italic;
-  text-decoration:underline;
 }
 
 .wrapper form {
@@ -286,11 +285,26 @@ button[type="submit"]:hover {
   
   #Profile{
     position: absolute;
-    top: 4.5%;
+    bottom: 3.5%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(253, 89, 89);
+    color: black;
     font-weight: bold;
     font-style: italic;
-    font-size: 28px;
+    font-size: 24px;
+  }
+
+  #saveexchange{
+    background-color: #1d7bf6;
+    transition: background-color 0.3s ease;
+    color: white;
+    transition: 1s ease-out;
+  }
+  #saveexchange:hover{
+    background: linear-gradient(to bottom, #2511f9, #0e038b);
+    
+  }
+  #greeting{
+    font-weight: bold;
+    font-size: 24px;
   }

@@ -1,0 +1,24 @@
+Moduels:
+express, path, cookie-parser, body-parser, mysql2
+
+Delete Tables Path:
+/dropAllTables
+
+Creating Tables Syntax:
+connection.connect(error=>{
+    if (error) throw error;
+    console.log("connected to DB");
+
+        const Q1 = 'CREATE TABLE IF NOT EXISTS `Users` (email varchar(200) NOT NULL PRIMARY KEY, username varchar(255) NOT NULL, password varchar(255) NOT NULL, favcoin varchar(250) NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8';
+        connection.query(Q1, function (err, result) {
+            if (err) throw err;
+            console.log("hi - Users table created");
+              const Q3 = 'CREATE TABLE IF NOT EXISTS `HistoryTable` (id Int NOT NULL PRIMARY KEY AUTO_INCREMENT, email varchar(200) NOT NULL, username varchar(255) NOT NULL, fromCoin varchar(255) NOT NULL, amount int not null, toCoin varchar(250) not null) ENGINE=InnoDB DEFAULT CHARSET=utf8';
+              connection.query(Q3,function s(err, result) {
+                if (err) throw err;
+                  console.log("hi - History table created");
+                  console.log("hi - ALL tables created");
+              });
+          }
+        )}
+);
